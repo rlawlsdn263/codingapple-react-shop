@@ -14,7 +14,6 @@ import data from '../data';
 function App() {
   // 서버에서 가져온 데이터 
   let [shoes] = useState(data);
-  let [index, setIndex] = useState(0);
 
   return (
     <div className="App">
