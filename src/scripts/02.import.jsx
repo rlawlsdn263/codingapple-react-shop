@@ -1,11 +1,20 @@
+import { useState } from 'react';
 import { Navbar, Nav, Container } from "react-bootstrap";
 import "../App.css";
 
-// import로 이미지 가져오기
-// 그런데 import하는 게 많으면 가져오기 힘드니 public 폴더 쓰면 됨
-// import bg from '../imgs/bg.png';
+/* 데이터 가져오기
+import a from '../data';
+
+데이터 여러 개 가져오기
+중괄호로 가져올 때는 이름변경X
+import {a,b} from '../data' */
+
+import data from '../data';
 
 function App() {
+  // 서버에서 가져온 데이터 
+  let [shoes] = useState(data);
+
   return (
     <div className="App">
       <Navbar bg="dark" variant="dark">
@@ -19,34 +28,24 @@ function App() {
         </Container>
       </Navbar>
       
-      {/* 
-        JSX에서 바로 이미지 넣기
-      */}
-
-      {/* <div className="main-bg" style={{background: `url(${bg})` }}></div> */}
       <div className="main-bg"></div>
-
-      {/* 상품 레이아웃 3개 만들기 */}
+      
       <div className="container">
         <div className="row">
           <div className="col-md-4">
-            {/* 
-              외부에 호스팅해둔 이미지면 이미지 절대주소만 넣으면 됨 
-              퍼블릭 폴더에 이미지 넣고 다음 경로를 사용해도 됨
-            */}
-            <img src={process.env.PUBLIC_URL + '/logo192.png'} alt=""/> 
-            <h4>상품명</h4>
-            <p>상품설명</p>
+            <img src="https://codingapple1.github.io/shop/shoes1.jpg" alt="" width="80%"/> 
+            <h4>{shoes[0].title}</h4>
+            <p>{shoes[0].content}</p>
           </div>
           <div className="col-md-4">
           <img src="https://codingapple1.github.io/shop/shoes2.jpg" alt="" width="80%"></img>
-            <h4>상품명</h4>
-            <p>상품설명</p>
+          <h4>{shoes[1].title}</h4>
+            <p>{shoes[1].content}</p>
           </div>
           <div className="col-md-4">
           <img src="https://codingapple1.github.io/shop/shoes3.jpg" alt="" width="80%"></img>
-            <h4>상품명</h4>
-            <p>상품설명</p>
+          <h4>{shoes[2].title}</h4>
+            <p>{shoes[2].content}</p>
           </div>
         </div>
       </div> 
@@ -54,5 +53,9 @@ function App() {
     </div>
   );
 }
+
+//숙제
+//1.컴포넌트화 하기
+//2. map으로 리스트 렌더링하기
 
 export default App;
