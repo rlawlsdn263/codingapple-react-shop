@@ -1,3 +1,12 @@
+.main-bg {
+  height: 300px;
+  /* CSS에서 이미지 넣기 - 경로 */
+  background-image: url('./imgs/bg.png');
+  /* 이미지가 비율에 맞게 보임 */
+  background-size: cover;
+  /* 이미지의 크기 변화가 있을 때 비율에 맞게 동작함 */
+  background-position: center;
+}
 .App {
   text-align: center;
 }
