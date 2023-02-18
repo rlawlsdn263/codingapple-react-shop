@@ -14,6 +14,7 @@ import data from '../data';
 function App() {
   // 서버에서 가져온 데이터 
   let [shoes] = useState(data);
+  let [index, setIndex] = useState(0);
 
   return (
     <div className="App">
@@ -32,7 +33,7 @@ function App() {
       
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <img src="https://codingapple1.github.io/shop/shoes1.jpg" alt="" width="80%"/> 
             <h4>{shoes[0].title}</h4>
             <p>{shoes[0].content}</p>
@@ -46,7 +47,14 @@ function App() {
           <img src="https://codingapple1.github.io/shop/shoes3.jpg" alt="" width="80%"></img>
           <h4>{shoes[2].title}</h4>
             <p>{shoes[2].content}</p>
-          </div>
+          </div> */}
+          {
+            shoes.map((item,index) => { 
+              return(
+                <Card shoes={shoes} index={index}></Card>
+              )
+            })
+          }
         </div>
       </div> 
 
@@ -56,6 +64,16 @@ function App() {
 
 //숙제
 //1.컴포넌트화 하기
+function Card(props) {
+  return(
+    <div className="col-md-4">
+    <img src={"https://codingapple1.github.io/shop/shoes" + (props.shoes[props.index].id + 1) +".jpg"} alt="" width="80%"></img>
+    <h4>{props.shoes[props.index].title}</h4>
+      <p>{props.shoes[props.index].content}</p>
+    </div>
+  )
+}
+
 //2. map으로 리스트 렌더링하기
 
 export default App;
