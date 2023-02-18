@@ -50,7 +50,7 @@ function App() {
                 </div> 
               </>
           } />
-        <Route path="/detail" element={<div>상세페이지임</div>} />
+        <Route path="/detail" element={<Details></Details>} />
       </Routes>
     </div>
   );
@@ -63,6 +63,25 @@ function Card(props) {
     <h4>{props.shoes.title}</h4>
       <p>{props.shoes.content}</p>
     </div>
+  )
+}
+
+//숙제! 상세페이지 컴포넌트 만들기
+function Details() {
+  return(
+      <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+          <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" alt=""/>
+        </div>
+        <div className="col-md-6">
+        <h4 className="pt-5">상품명</h4>
+        <p>상품설명</p>
+        <p>120000원</p>
+        <button className="btn btn-danger">주문하기</button> 
+      </div>
+    </div>
+  </div> 
   )
 }
 
