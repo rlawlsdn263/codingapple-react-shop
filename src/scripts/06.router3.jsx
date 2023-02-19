@@ -57,7 +57,7 @@ function App() {
           URL파라미터 문법 
           /detail/:URL파라미터
         */}
-        <Route path="/detail/:id" element={<Detail shoes={shoes}></Detail>} />
+        <Route path="/detail/:id" element={ <Detail shoes={shoes}></Detail>} />
 
         <Route path="/about" element={<About/>}>
           <Route path="member" element={<div>멤버</div>} />
