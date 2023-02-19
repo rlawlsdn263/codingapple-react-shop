@@ -1,4 +1,9 @@
-function Details() {
+import { useParams } from "react-router-dom";
+
+function Details(props) {
+  // 유저가 URL 파라미터에 입력한 걸 가져오려면 useParams()
+  let { id } = useParams();
+
   return (
     <div className="container">
       <div className="row">
@@ -10,9 +15,9 @@ function Details() {
           />
         </div>
         <div className="col-md-6">
-          <h4 className="pt-5">상품명</h4>
-          <p>상품설명</p>
-          <p>120000원</p>
+          <h4 className="pt-5">{props.shoes[id].title}</h4>
+          <p>{props.shoes[id].content}</p>
+          <p>{props.shoes[id].price}</p>
           <button className="btn btn-danger">주문하기</button>
         </div>
       </div>
