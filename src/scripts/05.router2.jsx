@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="#">Navbar</Navbar.Brand>
           <Nav className="me-auto">
             {/* 
               useNavigate로 페이지 이동이 가능 
@@ -36,6 +36,12 @@ function App() {
             <Nav.Link onClick={()=>{
               navigate('/detail')
             }}>Detail</Nav.Link>
+            
+            {/* 숙제 */}
+            <Nav.Link onClick={()=>{
+              navigate('/event')
+            }}>Event</Nav.Link>
+
           </Nav>
         </Container>
       </Navbar>
@@ -59,9 +65,6 @@ function App() {
           } />
         <Route path="/detail" element={<Details></Details>} />
 
-        {/* 404페이지 만들기 */}
-        <Route path="*" element={<div>없는페이지요</div>} />
-
         {/* 
           Nested Routes 
           /about/memebers
@@ -82,6 +85,14 @@ function App() {
           <Route path="member" element={<div>멤버</div>} />
           <Route path="location" element={<div>위치</div>} />
         </Route>
+
+        <Route path="/event" element={<Event/>}>
+          <Route path="one" element={<p>첫 주문시 양배추즙 서비스</p>} />
+          <Route path="two" element={<p>생일기념쿠폰</p>} />
+        </Route>
+
+        {/* 404페이지 만들기 */}
+        <Route path="*" element={<div>없는페이지요</div>} />
       </Routes>
     </div>
   );
@@ -92,6 +103,15 @@ function About() {
     <div>
       <h4>회사정보임</h4>
       {/* Nested Routes의 element 보여주는 위치 */}
+      <Outlet></Outlet>
+    </div>
+  )
+}
+
+function Event() {
+  return(
+    <div>
+      <h4>오늘의 이벤트</h4>
       <Outlet></Outlet>
     </div>
   )
